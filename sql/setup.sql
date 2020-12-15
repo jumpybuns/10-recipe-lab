@@ -4,4 +4,12 @@ CREATE TABLE recipes (
   id BIGINT GENERATED ALWAYS AS IDENTITY,
   name TEXT NOT NULL,
   directions TEXT[]
-);
+)
+
+CREATE TABLE logs (
+  id BIGINT GENERATE ALWAYS AS IDENTITY,
+  recipeId TEXT NOT NULL,
+  dateOfEvent TEXT NOT NULL,
+  notes TEXT NOT NULL,
+  rating TEXT NOT NULL
+)
