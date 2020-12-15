@@ -52,11 +52,6 @@ describe('recipe-lab routes', () => {
   });
 
   it('gets specific recipe by Id', async() => {
-    // const recipes = await Promise.all([
-    //   { name: 'cookies', directions: [] },
-    //   { name: 'cake', directions: [] },
-    //   { name: 'pie', directions: [] }
-    // ].map(recipe => Recipe.insert(recipe)));
 
     const recipe = await Recipe.insert({
       id: 1,
@@ -106,4 +101,21 @@ describe('recipe-lab routes', () => {
         });
       });
   });
+
+  it('DELETE specific recipe by Id', async() => {
+
+    const recipe = await Recipe.insert({
+      id: 1,
+      name: 'cookies', directions: []
+    });
+    return request(app)
+      .delete(`/api/v1/recipes/${recipe.id}`)
+      .then(res => {
+        (recipe => {
+          expect(res.body).toContainEqual(recipe);
+        });
+      });
+  });
+
+  
 });
