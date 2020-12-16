@@ -13,7 +13,7 @@ describe('recipe-lab routes', () => {
     return pool.end();
   });
 
-  it('creates a recipe', () => {
+  it('POST creates a recipe', () => {
     return request(app)
       .post('/api/v1/recipes')
       .send({
@@ -59,7 +59,8 @@ describe('recipe-lab routes', () => {
 
     const recipe = await Recipe.insert({
       id: 1,
-      name: 'cookies', directions: []
+      name: 'cookies', 
+      directions: []
     });
     return request(app)
       .get(`/api/v1/recipes/${recipe.id}`)

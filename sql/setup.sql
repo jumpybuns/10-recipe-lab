@@ -4,17 +4,17 @@ DROP TABLE IF EXISTS logs;
 CREATE TABLE recipes (
   id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   name TEXT NOT NULL,
-  directions TEXT[],
-  ingredients JSONB
+  directions TEXT[]
 
+  
 );
 
 CREATE TABLE logs (
   id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-  recipeId INTEGER REFERENCES recipes(id),
-  dateOfEvent TEXT NOT NULL,
+  recipe_id BIGINT NOT NULL REFERENCES recipes(id),
+  date_of_event TEXT NOT NULL,
   notes TEXT NOT NULL,
-  rating TEXT NOT NULL
+  rating INTEGER
 );
 
 
