@@ -14,7 +14,7 @@ describe('log routes', () => {
     return pool.end();
   });
 
-  it.only('creates a log', async() => {
+  it('creates a log', async() => {
     const recipe = await Recipe.insert({
       name: 'cookies',
       directions: [
@@ -134,6 +134,7 @@ describe('log routes', () => {
       });
 
     expect(response.body).toEqual({
+      id: log.id,
       recipeId: recipe.id,
       dateOfEvent: 'Next Blurnsday',
       notes: 'make it Caliente',
