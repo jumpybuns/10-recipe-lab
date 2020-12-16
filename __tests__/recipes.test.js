@@ -18,6 +18,11 @@ describe('recipe-lab routes', () => {
       .post('/api/v1/recipes')
       .send({
         name: 'cookies',
+        ingredients: [
+          { amount: 'pinch', item: 'salt' },
+          { amount: 'handful', item: 'sugar' },
+          { amount: '1 bucket', item: 'love' }
+        ],
         directions: [
           'preheat oven to 375',
           'mix ingredients',
@@ -29,6 +34,11 @@ describe('recipe-lab routes', () => {
         expect(res.body).toEqual({
           id: expect.any(String),
           name: 'cookies',
+          ingredients: [
+            { amount: 'pinch', item: 'salt' },
+            { amount: 'handful', item: 'sugar' },
+            { amount: '1 bucket', item: 'love' }
+          ],
           directions: [
             'preheat oven to 375',
             'mix ingredients',
@@ -59,7 +69,8 @@ describe('recipe-lab routes', () => {
 
     const recipe = await Recipe.insert({
       id: 1,
-      name: 'cookies', 
+      name: 'cookies',
+      ingredients: [], 
       directions: []
     });
     return request(app)
@@ -74,6 +85,11 @@ describe('recipe-lab routes', () => {
   it('updates a recipe by id', async() => {
     const recipe = await Recipe.insert({
       name: 'cookies',
+      ingredients: [
+        { amount: 'pinch', item: 'salt' },
+        { amount: 'handful', item: 'sugar' },
+        { amount: '1 bucket', item: 'love' }
+      ],
       directions: [
         'preheat oven to 375',
         'mix ingredients',
@@ -86,6 +102,11 @@ describe('recipe-lab routes', () => {
       .put(`/api/v1/recipes/${recipe.id}`)
       .send({
         name: 'good cookies',
+        ingredients: [
+          { amount: 'pinch', item: 'salt' },
+          { amount: 'handful', item: 'sugar' },
+          { amount: '1 bucket', item: 'love' }
+        ],
         directions: [
           'preheat oven to 375',
           'mix ingredients',
@@ -97,6 +118,11 @@ describe('recipe-lab routes', () => {
         expect(res.body).toEqual({
           id: expect.any(String),
           name: 'good cookies',
+          ingredients: [
+            { amount: 'pinch', item: 'salt' },
+            { amount: 'handful', item: 'sugar' },
+            { amount: '1 bucket', item: 'love' }
+          ],
           directions: [
             'preheat oven to 375',
             'mix ingredients',
@@ -111,7 +137,9 @@ describe('recipe-lab routes', () => {
 
     const recipe = await Recipe.insert({
       id: 1,
-      name: 'cookies', directions: []
+      name: 'cookies',
+      ingredients: [],
+      directions: []
     });
     return request(app)
       .delete(`/api/v1/recipes/${recipe.id}`)

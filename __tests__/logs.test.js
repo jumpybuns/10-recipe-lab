@@ -17,6 +17,11 @@ describe('log routes', () => {
   it('creates a log', async() => {
     const recipe = await Recipe.insert({
       name: 'cookies',
+      ingredients: [
+        { amount: 'pinch', item: 'salt' },
+        { amount: 'handful', item: 'sugar' },
+        { amount: '1 bucket', item: 'love' }
+      ],
       directions: [
         'preheat oven to 375',
         'mix ingredients',
@@ -46,6 +51,11 @@ describe('log routes', () => {
   it('gets all logs', async() => {
     const recipe = await Recipe.insert({
       name: 'cookies',
+      ingredients: [
+        { amount: 'pinch', item: 'salt' },
+        { amount: 'handful', item: 'sugar' },
+        { amount: '1 bucket', item: 'love' }
+      ],
       directions: [
         'preheat oven to 375',
         'mix ingredients',
@@ -76,6 +86,11 @@ describe('log routes', () => {
   it('gets specific log by Id', async() => {
     const recipe = await Recipe.insert({
       name: 'cookies',
+      ingredients: [
+        { amount: 'pinch', item: 'salt' },
+        { amount: 'handful', item: 'sugar' },
+        { amount: '1 bucket', item: 'love' }
+      ],
       directions: [
         'preheat oven to 375',
         'mix ingredients',
@@ -108,6 +123,11 @@ describe('log routes', () => {
   it('updates a log by id', async() => {
     const recipe = await Recipe.insert({
       name: 'cookies',
+      ingredients: [
+        { amount: 'pinch', item: 'salt' },
+        { amount: 'handful', item: 'sugar' },
+        { amount: '1 bucket', item: 'love' }
+      ],
       directions: [
         'preheat oven to 375',
         'mix ingredients',
@@ -146,6 +166,11 @@ describe('log routes', () => {
 
     const recipe = await Recipe.insert({
       name: 'cookies',
+      ingredients: [
+        { amount: 'pinch', item: 'salt' },
+        { amount: 'handful', item: 'sugar' },
+        { amount: '1 bucket', item: 'love' }
+      ],
       directions: [
         'preheat oven to 375',
         'mix ingredients',
