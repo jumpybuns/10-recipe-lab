@@ -1,0 +1,88 @@
+const fs = require('fs');
+const pool = require('../lib/utils/pool');
+const request = require('supertest');
+const app = require('../lib/app');
+const Log = require('../lib/models/log');
+
+
+describe('log routes', () => {
+  beforeEach(() => {
+    return pool.query(fs.readFileSync('./sql/setup.sql', 'utf-8'));
+  });
+
+  it('creates a log', () => {
+    return request(app)
+      .post('/api/v1/logs')
+      .send({
+
+        
+      })
+      .then(res => {
+        // expect(res.body).toEqual({
+  
+        // });
+      });
+  });
+
+//   it('gets all logs', async() => {
+//     const logs = await Promise.all([
+
+//     ].map(log => Log.insert(log)));
+
+//     return request(app)
+//       .get('/api/v1/logs')
+//       .then(res => {
+//         logs.forEach(log => {
+//           expect(res.body).toContainEqual(log);
+//         });
+//       });
+//   });
+
+//   it('gets specific log by Id', async() => {
+
+//     const log = await Log.insert({
+
+//     });
+//     return request(app)
+//       .get(`/api/v1/logs/${log.id}`)
+//       .then(res => {
+//         (log => {
+//           expect(res.body).toContainEqual(log);
+//         });
+//       });
+//   });
+
+//   it('updates a log by id', async() => {
+//     const log = await Log.insert({
+
+//     });
+
+//     return request(app)
+//       .put(`/api/v1/logs/${log.id}`)
+//       .send({
+
+        
+//       })
+//       .then(res => {
+//         expect(res.body).toEqual({
+
+//         });
+//       });
+//   });
+
+//   it('DELETE specific log by Id', async() => {
+
+//     const log = await log.insert({
+
+//     });
+//     return request(app)
+//       .delete(`/api/v1/logs/${log.id}`)
+//       .then(res => {
+//         (log => {
+//           expect(res.body).toContainEqual(log);
+//         });
+//       });
+//   });
+
+  
+});
